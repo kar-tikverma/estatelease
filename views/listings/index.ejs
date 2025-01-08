@@ -1,0 +1,151 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<head>
+    <title>Listings</title>
+    <link rel="stylesheet" href="/css/index.css" />
+    <style>
+        .filter {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            color: #6a6a6a;
+            position: relative; /* Needed for positioning the pseudo-element */
+            cursor: pointer;
+        }
+
+        .filter:hover {
+            color: #000; /* Change text color on hover */
+        }
+
+        .filter::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: rgb(140, 140, 140); /* Color of the underline */
+            transition: width 0.3s ease; /* Smoothly grow the underline */
+        }
+
+        .filter:hover::after {
+            width: 100%; /* Expand the underline on hover */
+        }
+
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter p {
+            font-size: 0.8rem;
+        }
+
+        .tax-info {
+            display: none;
+        }
+
+        .tax-toggle {
+            border: 1px solid #ddd;
+            border-radius: 0.6rem;
+            padding: 0.625rem 1rem;
+        }
+
+        .tax-toggle:hover {
+            border-color: #000;
+            background-color: #f7f7f7;
+        }
+
+        .tax-label {
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h3>All Listings</h3> -->
+    <div class="filters">
+        <div class="filter">
+            <i class="fa-solid fa-fire"></i>
+            <p>Trending</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-bed"></i>
+            <p>Rooms</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-city"></i>
+            <p>Iconic Cities</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-mountain"></i>
+            <p>Mountains</p>
+        </div>
+        <div class="filter">
+            <i class="fa-brands fa-fort-awesome"></i>
+            <p>Castles</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-person-swimming"></i>
+            <p>Amazing pools</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-campground"></i>
+            <p>Camping</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-cow"></i>
+            <p>Farms</p>
+        </div>
+        <div class="filter">
+            <i class="fa-regular fa-snowflake"></i>
+            <p>Arctic</p>
+        </div>
+
+        <div class="tax-toggle ms-auto">
+            <div class="form-check-reverse form-switch">
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="flexSwitchCheckDefault"
+                />
+                <label class="tax-label form-check-label" for="flexSwitchCheckDefault">
+                    Display total before taxes
+                </label>
+            </div>
+        </div>
+    </div>
+    <section>
+        <% for (let listing of allListings) { %>
+        <div class="card">
+            <a class="card-link" href="/listings/<%= listing._id %>">
+                <img src="<%= listing.image.url %>" />
+                <p class="loc">
+                    <%= listing.location %>, <%= listing.country %>
+                </p>
+                <p class="title"><%= listing.title %></p>
+                <p class="price">
+                    <b>$<%= listing.price.toLocaleString("en-US") %></b> night
+                    <i class="tax-info">&nbsp; +18% GST</i>
+                </p>
+            </a>
+        </div>
+        <% } %>
+    </section>
+
+    <script>
+        const taxSwitch = document.getElementById("flexSwitchCheckDefault");
+        taxSwitch.addEventListener("click", () => {
+            const taxInfo = document.getElementsByClassName("tax-info");
+            if (taxInfo[0].style.display != "inline") {
+                for (let info of taxInfo) {
+                    info.style.display = "inline";
+                }
+            } else {
+                for (let info of taxInfo) {
+                    info.style.display = "none";
+                }
+            }
+        });
+    </script>
+</body>
