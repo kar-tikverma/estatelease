@@ -79,3 +79,32 @@ p {
     font-size: 0.8125rem;
     color: rgb(102, 102, 102);
 }
+
+.filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.tax-info {
+    display: none;
+}
+
+.tax-toggle {
+    border: 1px solid #ddd;
+    border-radius: 0.6rem;
+    padding: 0.625rem 1rem;
+}
+
+.tax-toggle:hover {
+    border-color: #000;
+    background-color: #f7f7f7;
+}
+
+.tax-label {
+    font-size: 0.75rem;
+}
+
+.pre-tax {
+    display: none;
+}

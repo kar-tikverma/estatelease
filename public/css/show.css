@@ -1,0 +1,38 @@
+.show-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.show-img {
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    aspect-ratio: 1.5;
+}
+
+.show-p {
+    margin-bottom: 0.7rem;
+}
+
+.show-city {
+    margin: 0;
+}
+
+.show-btn {
+    display: flex;
+    gap: 3rem;
+}
+
+.edit-btn {
+    background-color: #ff385c;
+    color: #fff;
+}
+
+.edit-btn:hover {
+    background-color: #cd1f3f;
+    color: #fff;
+}
+
+#map {
+    height: 400px;
+    width: 80vh;
+}
