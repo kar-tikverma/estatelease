@@ -24,7 +24,7 @@
             <p class="show-p show-country"><%= listing.country %></p>
             <% if (currUser && currUser._id.equals(listing.owner._id)) { %>
             <div class="show-btn">
-                <a href="/listings/<%= listing._id %>/edit"></a>
+                <a href="/listings/<%= listing._id %>/edit">
                     <button class="btn edit-btn">Edit</button>
                 </a>
                 <form
