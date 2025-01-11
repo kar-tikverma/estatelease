@@ -29,15 +29,16 @@
         />
         <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.2/mapbox-gl.js"></script>
         <link href="/css/style.css" rel="stylesheet" />
-        <link href="/css/rating.css" rel="stylesheet" />
         <link href="/css/navbar.css" rel="stylesheet" />
         <link href="/css/footer.css" rel="stylesheet" />
     </head>
 
     <body class="container-body">
         <%- include("../includes/navbar.ejs") %>
-        <div class="container">
-            <%- include("../includes/flash.ejs") %> <%- body %>
+        <div class="container1">
+            <div class="container2">
+                <%- include("../includes/flash.ejs") %> <%- body %>
+            </div>
         </div>
         <%- include("../includes/footer.ejs") %>
         <script
