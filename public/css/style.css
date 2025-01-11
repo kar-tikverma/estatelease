@@ -28,6 +28,7 @@ textarea {
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
+    width: 100%;
     max-width: 2520px;
 }
 
