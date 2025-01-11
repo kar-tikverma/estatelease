@@ -1,8 +1,11 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
+<head>
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
 <body>
     <div class="row mt-3">
-        <div class="col-6 offset-3">
+        <div>
             <form action="/signup" method="post" class="needs-validation" novalidate>
                 <div class="mb-3">
                     <label for="username">Username</label>
@@ -37,7 +40,7 @@
                     >
                     <div class="invalid-feedback">Please enter a valid password</div>
                 </div>
-                <button class="btn btn-dark offset-5 mt-5">Sign Up</button>
+                <button class="btn mt-5">Sign Up</button>
             </form>
         </div>
     </div>
