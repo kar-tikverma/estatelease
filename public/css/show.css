@@ -1,6 +1,20 @@
+/* @media screen and (min-aspect-ratio: 16/9) {
+    body {
+        background-color: lightgreen;
+    }
+} */
+
+.show-o-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
 .show-container {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 30rem;
 }
 
 .show-img {
@@ -33,6 +47,6 @@
 }
 
 #map {
-    height: 400px;
-    width: 80vh;
+    aspect-ratio: 1.5;
+    width: 100%;
 }
