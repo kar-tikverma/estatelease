@@ -18,9 +18,19 @@
                 <p>
                     <i>Owned by: <b><%= listing.owner.username %></b></i>
                 </p>
-                <p class="show-p show-description"><%= listing.description %></p>
+                <p class="show-p show-description">
+                    <%= listing.description %>
+                </p>
                 <p class="show-p show-price">
-                    <b>&#8377;<%= listing.price.toLocaleString("en-IN") %></b>
+                    <button>
+                        <b>
+                            <span>Rent Now</span>
+                            <span>
+                                &#8377;<%= listing.price.toLocaleString("en-IN")
+                                %>
+                            </span>
+                        </b>
+                    </button>
                 </p>
                 <p class="show-p show-city"><%= listing.location %></p>
                 <p class="show-p show-country"><%= listing.country %></p>
@@ -40,7 +50,7 @@
             </div>
             <hr />
             <div><%- include("../includes/review.ejs") %></div>
-    
+
             <div>
                 <h3>Where you'll be</h3>
                 <div id="map"></div>
