@@ -34,6 +34,9 @@ const listingSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
     },
+    isRented: {
+        type: Boolean
+    },
     geometry: {
         type: {
             type: String,
@@ -44,10 +47,6 @@ const listingSchema = new Schema({
             type: [Number],
             required: true,
         },
-    },
-    cateory: {
-        type: String,
-        enum: ["mountains", "arctic", "farms", "deserts"],
     },
 });
 
