@@ -6,11 +6,11 @@ module.exports.renderSignupForm = (req, res) => {
 
 module.exports.signup = async (req, res, next) => {
     try {
-        const { username, email, password } = req.body;
-        const newUser = new User({ email, username });
+        const { firstName, lastName, username, email, password } = req.body;
+        const newUser = new User({ firstName, lastName, username, email });
 
         const registeredUser = await User.register(newUser, password);
-        
+
         req.login(registeredUser, (err) => {
             if (err) return next(err);
             req.flash("success", `Welcome to EscapeNest!`);
@@ -44,4 +44,20 @@ module.exports.logout = (req, res) => {
         req.flash("success", "You're logged out!");
         res.redirect("/listings");
     });
+};
+
+module.exports.showProfile = (req, res) => {
+    const user = req.user;
+    res.render("users/showProfile.ejs", { user });
+};
+
+module.exports.editProfile = (req, res) => {
+    const user = req.user;
+    res.render("users/editProfile.ejs", { user });
+};
+
+module.exports.updateProfile = async (req, res) => {
+    const user = req.user;
+    await User.findByIdAndUpdate(req.user._id, req.body);
+    res.redirect("/profile");
 };

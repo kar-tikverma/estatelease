@@ -23,6 +23,7 @@ async function initDB() {
     initData = initData.map((obj) => ({
         ...obj,
         owner: "6779544555048dfddc09cb27",
+        isRented: false,
     }));
     await Listing.insertMany(initData);
 }

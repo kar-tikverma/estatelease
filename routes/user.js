@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const { saveRedirectUrl } = require("../middlewares/redirectUrl.js");
+const {
+    saveRedirectUrl,
+    isLoggedIn,
+} = require("../middlewares/redirectUrl.js");
 
 const userController = require("../controllers/user.js");
 
@@ -23,5 +26,12 @@ router
     );
 
 router.get("/logout", userController.logout);
+
+router
+    .route("/profile")
+    .get(isLoggedIn, userController.showProfile)
+    .post(isLoggedIn, userController.updateProfile);
+
+router.get("/profile/edit", userController.editProfile);
 
 module.exports = router;

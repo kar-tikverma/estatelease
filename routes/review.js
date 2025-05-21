@@ -5,7 +5,6 @@ const validateReview = require("../middlewares/validateReview.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const { isLoggedIn } = require("../middlewares/redirectUrl.js");
 const isReviewAuthor = require("../middlewares/isReviewAuthor.js");
-
 const reviewController = require("../controllers/review.js");
 
 async function verifyListing(req, res, next) {

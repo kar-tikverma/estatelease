@@ -1,0 +1,63 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<head>
+    <link rel="stylesheet" href="/css/profile.css" />
+</head>
+
+<body>
+    <div class="row mt-3">
+        <h2 class="mb-3">Profile</h2>
+        <div>
+            <div class="mb-3">
+                <label for="fname">First Name</label>
+                <input
+                    type="text"
+                    name="firstName"
+                    id="fname"
+                    class="form-control"
+                    value="<%= user.firstName %>"
+                    disabled
+                />
+            </div>
+            <div class="mb-3">
+                <label for="lname">Last Name</label>
+                <input
+                    type="text"
+                    name="lname"
+                    id="lastName"
+                    class="form-control"
+                    value="<%= user.lastName %>"
+                    disabled
+                />
+            </div>
+            <div class="mb-3">
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    class="form-control"
+                    value="<%= user.username %>"
+                    disabled
+                />
+            </div>
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                    value="<%= user.email %>"
+                    disabled
+                />
+            </div>
+            <a href="/profile/edit">
+                <button class="btn mt-5">Edit Profile</button>
+            </a>
+            <!-- <a href="/profile/password">
+                <button class="btn mt-5">Change Password</button>
+            </a> -->
+        </div>
+    </div>
+</body>

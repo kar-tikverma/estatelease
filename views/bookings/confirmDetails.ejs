@@ -1,0 +1,49 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<head>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .form-div {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h3 style="margin-bottom: 2rem">Confirm the details</h3>
+    <form action="/listings/<%= listing.id %>/bookings/confirm" method="POST">
+        <div class="form-div">
+            <div class="date-div">
+                <label for="date">Start Date:</label>
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    value="<%= details.date %>"
+                    disabled
+                />
+            </div>
+
+            <div class="time-div">
+                <label for="time">Check-in time:</label>
+                <input
+                    type="text"
+                    id="time"
+                    name="time"
+                    value="<%= details.time %>"
+                    disabled
+                />
+            </div>
+        </div>
+
+        <button>Confirm and Pay</button>
+    </form>
+</body>

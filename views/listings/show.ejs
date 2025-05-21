@@ -21,31 +21,44 @@
                 <p class="show-p show-description">
                     <%= listing.description %>
                 </p>
-                <p class="show-p show-price">
-                    <button>
-                        <b>
-                            <span>Rent Now</span>
-                            <span>
-                                &#8377;<%= listing.price.toLocaleString("en-IN")
-                                %>
-                            </span>
-                        </b>
-                    </button>
-                </p>
                 <p class="show-p show-city"><%= listing.location %></p>
                 <p class="show-p show-country"><%= listing.country %></p>
                 <% if (currUser && currUser._id.equals(listing.owner._id)) { %>
-                <div class="show-btn">
-                    <a href="/listings/<%= listing._id %>/edit">
-                        <button class="btn edit-btn">Edit</button>
-                    </a>
-                    <form
-                        action="/listings/<%= listing._id %>?_method=DELETE"
-                        method="post"
-                    >
-                        <button class="btn btn-dark del-btn">Delete</button>
-                    </form>
-                </div>
+                    <p class="show-p show-price">
+                        <a href="/listings/<%= listing.id %>/bookings">
+                            <b>
+                                <span>
+                                    &#8377;<%=
+                                    listing.price.toLocaleString("en-IN") %>
+                                </span>
+                            </b>
+                        </a>
+                    </p>
+                    <div class="show-btn">
+                        <a href="/listings/<%= listing._id %>/edit">
+                            <button class="btn edit-btn">Edit</button>
+                        </a>
+                        <form
+                            action="/listings/<%= listing._id %>?_method=DELETE"
+                            method="post"
+                        >
+                            <button class="btn btn-dark del-btn">Delete</button>
+                        </form>
+                    </div>
+                <% } else { %>
+                    <p class="show-p show-price">
+                        <a href="/listings/<%= listing.id %>/bookings">
+                            <button class="btn rent-now-button">
+                                <b>
+                                    <span>Rent Now</span>
+                                    <span>
+                                        &#8377;<%=
+                                        listing.price.toLocaleString("en-IN") %>
+                                    </span>
+                                </b>
+                            </button>
+                        </a>
+                    </p>
                 <% } %>
             </div>
             <hr />
