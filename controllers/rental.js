@@ -1,5 +1,5 @@
 const Listing = require("../models/listing.js");
-const Booking = require("../models/booking.js");
+const Rental = require("../models/rental.js");
 
 module.exports.rentNow = async (req, res) => {
     const listing = await Listing.findById(req.params.id);
@@ -8,7 +8,7 @@ module.exports.rentNow = async (req, res) => {
         //
     }
 
-    res.render("bookings/rentForm.ejs", { listing });
+    res.render("rentals/rentForm.ejs", { listing });
 };
 
 module.exports.processDetails = async (req, res) => {
@@ -23,19 +23,19 @@ module.exports.processDetails = async (req, res) => {
         time: req.body.time,
     };
 
-    res.render("bookings/confirmDetails.ejs", { listing, details });
+    res.render("rentals/confirmDetails.ejs", { listing, details });
 };
 
-module.exports.confirmBooking = async (req, res) => {
-    const bookingDetails = {
+module.exports.confirmRental = async (req, res) => {
+    const rentalDetails = {
         listing: req.params.id,
         tenant: req.user._id,
-        bookingDate: new Date(),
+        rentalDate: new Date(),
         status: 1,
     };
 
-    await new Booking(bookingDetails).save();
+    await new Rental(rentalDetails).save();
 
-    req.flash("success", "Booking Confirmed!");
+    req.flash("success", "Rental Confirmed!");
     res.redirect("/listings");
 };

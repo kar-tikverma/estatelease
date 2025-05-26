@@ -25,7 +25,7 @@
                 <p class="show-p show-country"><%= listing.country %></p>
                 <% if (currUser && currUser._id.equals(listing.owner._id)) { %>
                     <p class="show-p show-price">
-                        <a href="/listings/<%= listing.id %>/bookings">
+                        <a href="/listings/<%= listing.id %>/rentals">
                             <b>
                                 <span>
                                     &#8377;<%=
@@ -47,7 +47,7 @@
                     </div>
                 <% } else { %>
                     <p class="show-p show-price">
-                        <a href="/listings/<%= listing.id %>/bookings">
+                        <a href="/listings/<%= listing.id %>/rentals">
                             <button class="btn rent-now-button">
                                 <b>
                                     <span>Rent Now</span>

@@ -18,7 +18,7 @@ const User = require("./models/user.js");
 const { isLoggedIn } = require("./middlewares/redirectUrl.js");
 
 const listingRouter = require("./routes/listing.js");
-const bookingRouter = require("./routes/booking.js");
+const rentalRouter = require("./routes/rental.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
@@ -78,7 +78,7 @@ app.get("/", (req, res) => {
 
 app.use("/", userRouter);
 app.use("/listings", listingRouter);
-app.use("/listings/:id/bookings", isLoggedIn, bookingRouter);
+app.use("/listings/:id/rentals", isLoggedIn, rentalRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 
 app.all("*", (req, res) => {

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const bookingSchema = new Schema({
+const rentalSchema = new Schema({
     listing: {
         type: Schema.Types.ObjectId,
         ref: "Listing",
@@ -10,7 +10,7 @@ const bookingSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
     },
-    bookingDate: {
+    rentalDate: {
         type: Date,
     },
     status: {
@@ -18,6 +18,6 @@ const bookingSchema = new Schema({
     },
 });
 
-const Booking = mongoose.model("Booking", bookingSchema);
+const Rental = mongoose.model("Rental", rentalSchema);
 
-module.exports = Booking;
+module.exports = Rental;
