@@ -36,6 +36,7 @@ const listingSchema = new Schema({
     },
     isAvailable: {
         type: Boolean,
+        required: true,
     },
     geometry: {
         type: {
