@@ -45,7 +45,7 @@
                             <button class="btn btn-dark del-btn">Delete</button>
                         </form>
                     </div>
-                <% } else { %>
+                <% } else if (listing.isAvailable) { %>
                     <p class="show-p show-price">
                         <a href="/listings/<%= listing.id %>/rentals">
                             <button class="btn rent-now-button">
