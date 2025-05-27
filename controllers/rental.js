@@ -27,9 +27,12 @@ module.exports.processDetails = async (req, res) => {
 };
 
 module.exports.confirmRental = async (req, res) => {
+    const listing = await Listing.findById(req.params.id);
+
     const rentalDetails = {
         listing: req.params.id,
         tenant: req.user._id,
+        amountPaid: listing.price,
         rentalDate: new Date(),
         status: 1,
     };

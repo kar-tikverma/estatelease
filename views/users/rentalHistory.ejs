@@ -1,13 +1,30 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
 <head>
-    <link rel="stylesheet" href="/css/profile.css" />
+    <link rel="stylesheet" href="/css/rentalHistory.css" />
 </head>
 
 <body>
     <% if (rentals.length == 0) { %>
     <div>No Rentals</div>
     <% } else { %>
-    <div>history</div>
+    <div>
+        <% for (let rental of rentals) { %>
+        <a href="/listings/<%= rental.listing._id %>">
+            <div class="rental col-12">
+                <h4><%= rental.listing.title %></h4>
+                <p>
+                    Rented on: <% let d = new Date(rental.rentalDate); %> <%=
+                    d.toLocaleString('en-IN', { month: 'short', day: '2-digit',
+                    year: 'numeric' }).replace(/,/g, '') %>
+                </p>
+                <p>
+                    Paid: &#8377;<%= rental.amountPaid//.toLocaleString("en-IN")
+                    %>
+                </p>
+            </div>
+        </a>
+        <% } %>
+    </div>
     <% } %>
 </body>

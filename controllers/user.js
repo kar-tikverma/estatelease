@@ -64,7 +64,9 @@ module.exports.updateProfile = async (req, res) => {
 };
 
 module.exports.showRentalHistory = async (req, res) => {
-    const rentals = await Rental.find({ tenant: req.user._id });
+    const rentals = await Rental.find({ tenant: req.user._id }).populate({
+        path: "listing",
+    });
 
     res.render("users/rentalHistory.ejs", { rentals });
 };
