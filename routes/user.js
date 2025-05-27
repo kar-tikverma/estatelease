@@ -34,4 +34,6 @@ router
 
 router.get("/profile/edit", userController.editProfile);
 
+router.get("/rental-history", userController.showRentalHistory);
+
 module.exports = router;

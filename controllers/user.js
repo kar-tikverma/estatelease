@@ -1,4 +1,5 @@
 const User = require("../models/user.js");
+const Rental = require("../models/rental.js");
 
 module.exports.renderSignupForm = (req, res) => {
     res.render("users/signup.ejs");
@@ -60,4 +61,10 @@ module.exports.updateProfile = async (req, res) => {
     const user = req.user;
     await User.findByIdAndUpdate(req.user._id, req.body);
     res.redirect("/profile");
+};
+
+module.exports.showRentalHistory = async (req, res) => {
+    const rentals = await Rental.find({ tenant: req.user._id });
+
+    res.render("users/rentalHistory.ejs", { rentals });
 };

@@ -44,19 +44,33 @@
                     >
                         <% if (currUser) { %>
                         <li>
-                            <a class="dropdown-item" href="/profile">
+                            <a class="dropdown-item" href="/users/profile">
                                 Manage Profile
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="/logout">Log Out</a>
+                            <a
+                                class="dropdown-item"
+                                href="/users/rental-history"
+                            >
+                                Rentals
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/users/logout">
+                                Log Out
+                            </a>
                         </li>
                         <% } else { %>
                         <li>
-                            <a class="dropdown-item" href="/signup">Sign Up</a>
+                            <a class="dropdown-item" href="/users/signup">
+                                Sign Up
+                            </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="/login">Log In</a>
+                            <a class="dropdown-item" href="/users/login">
+                                Log In
+                            </a>
                         </li>
                         <% } %>
                     </ul>
@@ -68,7 +82,7 @@
                 <a class="nav-link" href="/listings/new">Lease your Estate</a>
                 <% if (currUser) { %>
                 <a class="nav-link" href="/users/profile">Manage Profile</a>
-                <a class="nav-link" href="/users/rentals">Rentals</a>
+                <a class="nav-link" href="/users/rental-history">Rentals</a>
                 <a class="nav-link" href="/users/logout">Log Out</a>
                 <% } else { %>
                 <a class="nav-link" href="/users/signup">Sign Up</a>
