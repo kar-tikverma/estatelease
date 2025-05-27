@@ -1,11 +1,17 @@
 .rental {
     border: 0.2rem solid rgb(128, 128, 128);
     border-radius: 0.7rem;
-    padding: 0.8rem 10rem 0.8rem 0.8rem;
     margin-bottom: 0.6rem;
     width: 100%;
+    padding: 0.8rem;
 }
 
 p {
     margin: 0;
+}
+
+@media (min-width: 520px) {
+    .rental {
+        padding: 0.8rem 10rem 0.8rem 0.8rem;
+    }
 }
