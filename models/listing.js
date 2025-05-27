@@ -34,8 +34,8 @@ const listingSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
     },
-    isRented: {
-        type: Boolean
+    isAvailable: {
+        type: Boolean,
     },
     geometry: {
         type: {
