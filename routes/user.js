@@ -36,4 +36,9 @@ router.get("/profile/edit", userController.editProfile);
 
 router.get("/rental-history", userController.showRentalHistory);
 
+router
+    .route("/rentals/:id/edit-time")
+    .get(userController.renderEditCheckInTimeForm)
+    .post(userController.changeCheckInTime);
+
 module.exports = router;

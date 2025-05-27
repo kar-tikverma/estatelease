@@ -1,6 +1,7 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
 <head>
+    <link rel="stylesheet" href="/css/button.css">
     <link rel="stylesheet" href="/css/rentalHistory.css" />
 </head>
 
@@ -26,6 +27,13 @@
                 year: 'numeric' }).replace(/,/g, '') %>
             </p>
             <p>Check-in Time: <%= rental.checkInTime %></p>
+            <% let today = new Date();
+            let startDate = new Date(rental.startDate);
+            if (startDate > today) { %>
+            <a href="/users/rentals/<%= rental._id %>/edit-time">
+                <button class="btn mt-2">Change Check-in Time</button>
+            </a>
+            <% } %>
         </div>
         <% } %>
     </div>

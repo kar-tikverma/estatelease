@@ -70,3 +70,16 @@ module.exports.showRentalHistory = async (req, res) => {
 
     res.render("users/rentalHistory.ejs", { rentals });
 };
+
+module.exports.renderEditCheckInTimeForm = async (req, res) => {
+    const rental = await Rental.findById(req.params.id);
+    res.render("rentals/changeCheckInTime.ejs", { rental });
+};
+
+module.exports.changeCheckInTime = async (req, res) => {
+    await Rental.findByIdAndUpdate(
+        { _id: req.params.id },
+        { checkInTime: req.body.time }
+    );
+    res.redirect("/users/rental-history");
+};

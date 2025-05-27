@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
 <head>
-    <link rel="stylesheet" href="/css/button.css">
+    <link rel="stylesheet" href="/css/button.css" />
     <style>
         form {
             display: flex;
@@ -19,14 +19,17 @@
 </head>
 
 <body>
-    <h3 style="margin-bottom: 2rem">
-        Monthly Rent: &#8377;<%= listing.price %>
-    </h3>
-    <form action="/listings/<%= listing.id %>/rentals" method="POST">
+    <form action="/users/rentals/<%= rental._id %>/edit-time" method="POST">
         <div class="form-div">
             <div class="date-div">
                 <label for="date">Start Date:</label>
-                <input type="date" id="date" name="date" required />
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    value="<%= rental.startDate.toISOString().split('T')[0] %>"
+                    disabled
+                />
             </div>
 
             <div class="time-div">
@@ -54,23 +57,4 @@
 
         <button class="btn">Submit</button>
     </form>
-    <script>
-        const dateInput = document.getElementById("date");
-
-        const today = new Date();
-
-        // Create min date = tomorrow
-        const minDate = new Date(today);
-        minDate.setDate(minDate.getDate() + 1);
-
-        // Create max date = 30 days from today
-        const maxDate = new Date(today);
-        maxDate.setDate(maxDate.getDate() + 30);
-
-        // Convert to YYYY-MM-DD
-        const formatDate = (d) => d.toISOString().split("T")[0];
-
-        dateInput.min = formatDate(minDate);
-        dateInput.max = formatDate(maxDate);
-    </script>
 </body>
