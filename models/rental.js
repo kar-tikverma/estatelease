@@ -16,6 +16,14 @@ const rentalSchema = new Schema({
         type: Number,
         required: true,
     },
+    startDate: {
+        type: Date,
+        required: true,
+    },
+    checkInTime: {
+        type: String,
+        reqeuired: true,
+    },
     rentalDate: {
         type: Date,
         required: true,
