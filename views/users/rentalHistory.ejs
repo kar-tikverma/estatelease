@@ -10,20 +10,23 @@
     <% } else { %>
     <div>
         <% for (let rental of rentals) { %>
-        <a href="/listings/<%= rental.listing._id %>">
-            <div class="rental col-12">
+        <div class="rental col-12">
+            <a href="/listings/<%= rental.listing._id %>">
                 <h4><%= rental.listing.title %></h4>
-                <p>
-                    Rented on: <% let d = new Date(rental.rentalDate); %> <%=
-                    d.toLocaleString('en-IN', { month: 'short', day: '2-digit',
-                    year: 'numeric' }).replace(/,/g, '') %>
-                </p>
-                <p>
-                    Paid: &#8377;<%= rental.amountPaid.toLocaleString("en-IN")
-                    %>
-                </p>
-            </div>
-        </a>
+            </a>
+            <p>
+                Rented on: <% let rentDate = new Date(rental.rentalDate); %> <%=
+                rentDate.toLocaleString('en-IN', { month: 'short', day:
+                '2-digit', year: 'numeric' }).replace(/,/g, '') %>
+            </p>
+            <p>Paid: &#8377;<%= rental.amountPaid.toLocaleString("en-IN") %></p>
+            <p>
+                Start Date: <% let d = new Date(rental.startDate); %> <%=
+                d.toLocaleString('en-IN', { month: 'short', day: '2-digit',
+                year: 'numeric' }).replace(/,/g, '') %>
+            </p>
+            <p>Check-in Time: <%= rental.checkInTime %></p>
+        </div>
         <% } %>
     </div>
     <% } %>
