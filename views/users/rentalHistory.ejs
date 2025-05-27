@@ -10,7 +10,7 @@
     <% } else { %>
     <div>
         <% for (let rental of rentals) { %>
-        <div class="rental col-12">
+        <div class="rental">
             <a href="/listings/<%= rental.listing._id %>">
                 <h4><%= rental.listing.title %></h4>
             </a>
