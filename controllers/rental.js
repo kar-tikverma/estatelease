@@ -47,6 +47,8 @@ module.exports.confirmRental = async (req, res) => {
             listing: listingId,
             tenant: req.user._id,
             amountPaid: updatedListing.price,
+            startDate: new Date(req.body.date),
+            checkInTime: req.body.time,
             rentalDate: new Date(),
             status: 1,
         };
