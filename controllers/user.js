@@ -20,7 +20,7 @@ module.exports.signup = async (req, res, next) => {
     } catch (err) {
         if (err.name === "UserExistsError") {
             req.flash("error", err.message);
-            res.redirect("/signup");
+            res.redirect("/users/signup");
         } else {
             next(err);
         }
